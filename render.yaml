@@ -5,8 +5,13 @@ services:
     python:
       version: 3.9
     buildCommand: |
-      pip install -r requirements.txt
+      pip install --upgrade pip && 
+      pip install -r requirements.txt &&
+      python -c "from tensorflow.keras.models import load_model; load_model('model/mnist_model.h5')"  # Verify model loads
     startCommand: waitress-serve --port=$PORT main:app
     envVars:
       - key: FLASK_ENV
         value: production
+      - key: TF_CPP_MIN_LOG_LEVEL  # Reduce TensorFlow logs
+        value: "3"
+    plan: free  # Explicit free tier selection
