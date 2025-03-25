@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .result-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .image-preview {
+            max-width: 200px;
+            margin: 20px auto;
+        }
+        .confidence-meter {
+        height: 20px;
+        background-color: #f1f1f1;
+        margin: 10px 0;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .confidence-bar {
+        height: 100%;
+        background-color: #4CAF50;
+        width: {{ confidence }}%;
+    }
+        .try-again {
+            margin-top: 20px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Classification Result</h1>
+    
+    <div class="result-container">
+        <h2>The digit is: <span style="color: #4CAF50; font-size: 1.5em;">{{ prediction }}</span></h2>
+        
+        <div class="confidence-meter">
+            <div class="confidence-bar"></div>
+        </div>
+        <p>Confidence: {{ "%.2f"|format(confidence) }}%</p>
+        
+        <div class="image-preview">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded digit" style="max-width: 100%;">
+        </div>
+    </div>
+    
+    <div class="try-again">
+        <a href="{{ url_for('upload_file') }}">Try another image</a>
+    </div>
+</body>
+</html>

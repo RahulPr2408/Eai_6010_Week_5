@@ -1,0 +1,21 @@
+# .gitignore
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.so
+.Python
+
+# TensorFlow/Virtual Env
+venv/
+.venv/
+env/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Render specific
+*.log
+*.pot
+*.pyc

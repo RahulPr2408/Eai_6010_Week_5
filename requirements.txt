@@ -1,0 +1,6 @@
+flask>=2.0.0
+tensorflow-cpu>=2.0.0  # Lighter than full tensorflow
+numpy>=1.19.0
+pillow>=9.0.0
+waitress>=2.0.0
+gunicorn>=20.0.0  # Recommended for Render

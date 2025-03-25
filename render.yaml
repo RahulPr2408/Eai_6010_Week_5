@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: mnist-classifier
+    runtime: python
+    python:
+      version: 3.9
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: waitress-serve --port=$PORT main:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
