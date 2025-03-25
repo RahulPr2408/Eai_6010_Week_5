@@ -55,9 +55,9 @@
         </div>
         <p>Confidence: {{ "%.2f"|format(confidence) }}%</p>
         
-        <div class="image-preview">
-            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded digit" style="max-width: 100%;">
-        </div>
+        <img src="data:image/png;base64,{{ image_data }}" 
+         alt="Uploaded digit" 
+         style="max-width: 100%;">
     </div>
     
     <div class="try-again">
